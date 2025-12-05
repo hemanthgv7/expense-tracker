@@ -17,7 +17,7 @@ This is a Dockerized Expense Tracker built with Python and PostgreSQL. It demons
 3. Check DB: `docker exec -it expense_postgres psql -U postgres -d expenses_db`
  
 ________________________________________
-▶️ Step 4: Running the Setup
+Step 4: Running the Setup
 We started both containers using:
 docker-compose up --build
 The output showed:
@@ -28,7 +28,7 @@ At this point, the Python app was successfully connected to PostgreSQL.
  
 
 ________________________________________
-🧪 Step 5: Validating Data Inside PostgreSQL
+Step 5: Validating Data Inside PostgreSQL
 To check whether our Python app really saved data, we opened PostgreSQL inside the container:
 docker exec -it expense_postgres psql -U postgres -d expenses_db
 Inside the SQL shell, we ran:

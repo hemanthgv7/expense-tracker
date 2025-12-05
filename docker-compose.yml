@@ -1,0 +1,32 @@
+version: '3.8'
+
+networks:
+  expense_network:
+
+services:
+  postgres_db:
+    image: postgres:15
+    container_name: expense_postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: expenses_db
+    ports:
+      - "5432:5432"
+    networks:
+      - expense_network
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  python_app:
+    build: .
+    container_name: expense_app
+    depends_on:
+      - postgres_db
+    networks:
+      - expense_network
+    stdin_open: true
+    tty: true
+
+volumes:
+  pgdata:
